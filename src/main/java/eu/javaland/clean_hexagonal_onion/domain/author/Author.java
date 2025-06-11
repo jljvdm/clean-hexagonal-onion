@@ -1,4 +1,4 @@
-package eu.javaland.clean_hexagonal_onion.data.author;
+package eu.javaland.clean_hexagonal_onion.domain.author;
 
 import lombok.Data;
 

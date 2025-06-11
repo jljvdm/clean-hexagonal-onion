@@ -1,13 +1,10 @@
 package eu.javaland.clean_hexagonal_onion.command.author;
 
-import eu.javaland.clean_hexagonal_onion.data.author.Author;
+import eu.javaland.clean_hexagonal_onion.domain.author.Author;
 import eu.javaland.clean_hexagonal_onion.domain.author.AuthorService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/authors/commands")
@@ -18,7 +15,7 @@ public class AuthorCommands {
 
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public void create(RegisterAuthorDTO authorPayload){
+    public void create(@RequestBody RegisterAuthorDTO authorPayload){
         authorService.registerAuthor(Author.createAuthor(authorPayload.firstName(), authorPayload.lastName()));
     }
 }
