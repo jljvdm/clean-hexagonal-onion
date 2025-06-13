@@ -13,7 +13,7 @@ public class AuthorCommands {
 
     private AuthorService authorService;
 
-    @PostMapping("/register")
+    @PostMapping(value = "/register", produces = "application/json", consumes = "application/json")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void create(@RequestBody RegisterAuthorDTO authorPayload){
         authorService.registerAuthor(Author.createAuthor(authorPayload.firstName(), authorPayload.lastName()));

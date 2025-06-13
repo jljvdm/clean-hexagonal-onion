@@ -3,6 +3,7 @@ package eu.javaland.clean_hexagonal_onion.data.author;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import static jakarta.persistence.GenerationType.SEQUENCE;
@@ -12,6 +13,7 @@ import static jakarta.persistence.GenerationType.SEQUENCE;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "author")
+@Getter
 public class AuthorJPA {
 
     @Id

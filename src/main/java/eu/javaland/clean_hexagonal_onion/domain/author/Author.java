@@ -1,8 +1,10 @@
 package eu.javaland.clean_hexagonal_onion.domain.author;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder(builderMethodName = "restore")
 public class Author {
 
     private Long id;
@@ -19,5 +21,9 @@ public class Author {
 
     public static Author createAuthor(String firstName, String lastName){
         return new Author(null, firstName, lastName);
+    }
+
+    public String getFullName(){
+        return "%s %s".formatted(firstName, lastName);
     }
 }

@@ -7,4 +7,8 @@ public class AuthorMapper {
     public static AuthorJPA mapToJPA(Author author) {
         return AuthorJPA.builder().firstName(author.getFirstName()).lastName(author.getLastName()).build();
     }
+
+    public static Author mapToDomain(AuthorJPA authorJPA) {
+        return Author.restore().id(authorJPA.getId()).firstName(authorJPA.getFirstName()).lastName(authorJPA.getLastName()).build();
+    }
 }

@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Slf4j
 @Service
 @AllArgsConstructor
@@ -17,5 +19,10 @@ public class AuthorServiceImpl implements AuthorService {
     public void registerAuthor(Author author) {
       //  log.debug("Register Author met naam: {} {}", author.getFirstName(), author.getLastName());
         authorRepository.save(AuthorMapper.mapToJPA(author));
+    }
+
+    @Override
+    public List<Author> getAll() {
+        return authorRepository.findAll().stream().map(AuthorMapper::mapToDomain).toList();
     }
 }
