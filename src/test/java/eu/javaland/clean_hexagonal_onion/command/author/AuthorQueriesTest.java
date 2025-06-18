@@ -4,6 +4,9 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import eu.javaland.clean_hexagonal_onion.data.author.AuthorJPA;
 import eu.javaland.clean_hexagonal_onion.domain.author.Author;
+import eu.javaland.clean_hexagonal_onion.domaininteraction.author.AuthorDataService;
+import eu.javaland.clean_hexagonal_onion.domaininteraction.author.AuthorDomainMapper;
+import eu.javaland.clean_hexagonal_onion.domaininteraction.author.AuthorFlow;
 import eu.javaland.clean_hexagonal_onion.query.AuthorView;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
@@ -35,6 +38,12 @@ class AuthorQueriesTest {
     @Autowired
     private EntityManager entityManager;
 
+    @Autowired
+    private AuthorFlow authorFlow;
+
+    @Autowired
+    private AuthorDataService authorDataService;
+
     @BeforeEach
     void beforeAll() {
         entityManager.createNativeQuery("DELETE FROM author WHERE true;").executeUpdate();
@@ -47,7 +56,7 @@ class AuthorQueriesTest {
         var authorJPA = AuthorJPA.builder().firstName("firstName").lastName("lastName").build();
         entityManager.persist(authorJPA);
         entityManager.flush();
-        AuthorView expected = new AuthorView(Author.createAuthor("firstName", "lastName"));
+        AuthorView expected = new AuthorView(AuthorDomainMapper.mapToDTO(Author.createAuthor("firstName", "lastName")));
         // when then
         MvcResult result = mockMvc.perform(get("/authors")
                         .accept(MediaType.APPLICATION_JSON))

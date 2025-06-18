@@ -1,6 +1,6 @@
 package eu.javaland.clean_hexagonal_onion.query;
 
-import eu.javaland.clean_hexagonal_onion.domain.author.AuthorService;
+import eu.javaland.clean_hexagonal_onion.domaininteraction.author.AuthorFlow;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,10 +13,10 @@ import java.util.List;
 @AllArgsConstructor
 public class AuthorQueries {
 
-    AuthorService authorService;
+    AuthorFlow authorFlow;
 
     @GetMapping
     List<AuthorView> authorViews(){
-        return authorService.getAll().stream().map(AuthorView::new).toList();
+        return authorFlow.getListOfAllAuthors().stream().map(AuthorView::new).toList();
     }
 }

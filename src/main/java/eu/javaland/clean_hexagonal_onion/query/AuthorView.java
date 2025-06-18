@@ -1,10 +1,10 @@
 package eu.javaland.clean_hexagonal_onion.query;
 
-import eu.javaland.clean_hexagonal_onion.domain.author.Author;
+import eu.javaland.clean_hexagonal_onion.domaininteraction.author.AuthorDTO;
 
 public record AuthorView(Long id, String name) {
 
-    public AuthorView(Author author) {
-        this(author.getId(), author.getFullName());
+    public AuthorView(AuthorDTO author) {
+        this(author.id(), author.getFullName());
     }
 }
