@@ -1,5 +1,7 @@
 package eu.javaland.clean_hexagonal_onion.domain.author;
 
+import eu.javaland.clean_hexagonal_onion.domain.book.Book;
+import eu.javaland.clean_hexagonal_onion.domain.book.Genre;
 import lombok.Builder;
 import lombok.Data;
 
@@ -23,7 +25,7 @@ public class Author {
         return new Author(null, firstName, lastName);
     }
 
-    public String getFullName(){
-        return "%s %s".formatted(firstName, lastName);
+    public Book writeManuscript(String title, Genre genre){
+        return Book.createManuscript(title,genre,this);
     }
 }

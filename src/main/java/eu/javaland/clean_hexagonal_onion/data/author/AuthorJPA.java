@@ -22,4 +22,5 @@ public class AuthorJPA {
     private Long id;
     private String firstName;
     private String lastName;
+
 }

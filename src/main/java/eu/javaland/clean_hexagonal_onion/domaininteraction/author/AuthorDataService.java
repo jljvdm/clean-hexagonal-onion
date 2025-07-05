@@ -7,4 +7,8 @@ public interface AuthorDataService {
     void save(AuthorDTO author);
 
     List<AuthorDTO> findAll();
+
+    AuthorDTO findById(Long authorId);
+
+    void registerAuthorByName(String firstName, String lastName);
 }

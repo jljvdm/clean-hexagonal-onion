@@ -1,4 +1,4 @@
-package eu.javaland.clean_hexagonal_onion.query;
+package eu.javaland.clean_hexagonal_onion.query.author;
 
 import eu.javaland.clean_hexagonal_onion.domaininteraction.author.AuthorFlow;
 import lombok.AllArgsConstructor;

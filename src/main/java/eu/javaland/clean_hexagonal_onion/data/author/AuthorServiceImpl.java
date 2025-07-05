@@ -17,12 +17,22 @@ public class AuthorServiceImpl implements AuthorDataService {
 
     @Override
     public void save(AuthorDTO author) {
-      //  log.debug("Register Author met naam: {} {}", author.getFirstName(), author.getLastName());
+        //  log.debug("Register Author met naam: {} {}", author.getFirstName(), author.getLastName());
         authorRepository.save(AuthorJPAMapper.mapToJPA(author));
     }
 
     @Override
     public List<AuthorDTO> findAll() {
         return authorRepository.findAll().stream().map(AuthorJPAMapper::mapToDTO).toList();
+    }
+
+    @Override
+    public AuthorDTO findById(Long authorId) {
+        return authorRepository.findById(authorId).map(AuthorJPAMapper::mapToDTO).orElse(null);
+    }
+
+    @Override
+    public void registerAuthorByName(String firstName, String lastName) {
+
     }
 }
