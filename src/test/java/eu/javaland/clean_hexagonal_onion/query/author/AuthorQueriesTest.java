@@ -1,4 +1,4 @@
-package eu.javaland.clean_hexagonal_onion.command.author;
+package eu.javaland.clean_hexagonal_onion.query.author;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -7,7 +7,6 @@ import eu.javaland.clean_hexagonal_onion.domain.author.Author;
 import eu.javaland.clean_hexagonal_onion.domaininteraction.author.AuthorDataService;
 import eu.javaland.clean_hexagonal_onion.domaininteraction.author.AuthorDomainMapper;
 import eu.javaland.clean_hexagonal_onion.domaininteraction.author.AuthorFlow;
-import eu.javaland.clean_hexagonal_onion.query.author.AuthorView;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.BeforeEach;

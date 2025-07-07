@@ -1,4 +1,4 @@
-package eu.javaland.clean_hexagonal_onion.command.author;
+package eu.javaland.clean_hexagonal_onion.query.book;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
