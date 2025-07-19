@@ -29,4 +29,13 @@ public class BookServiceImpl implements BookDataService {
     public List<BookDTO> findAllBooksWithTitle(String title) {
         return bookRepository.findByTitleContaining(title).stream().map(BookJPAMapper::toDTO).toList();
     }
+
+    @Override
+    public BookDTO findById(long bookId) {
+        var book = bookRepository.findById(bookId);
+        if (book.isEmpty()){
+            throw new BookNotFoundException("Book with id %d not found".formatted(bookId));
+        }
+        return book.map(BookJPAMapper::toDTO).orElse(null);
+    }
 }

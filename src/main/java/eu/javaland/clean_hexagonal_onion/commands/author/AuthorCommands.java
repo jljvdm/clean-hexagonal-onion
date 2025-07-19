@@ -1,4 +1,4 @@
-package eu.javaland.clean_hexagonal_onion.command.author;
+package eu.javaland.clean_hexagonal_onion.commands.author;
 
 import eu.javaland.clean_hexagonal_onion.domaininteraction.author.AuthorFlow;
 import lombok.AllArgsConstructor;
@@ -14,7 +14,9 @@ public class AuthorCommands {
 
     @PostMapping(value = "/register", produces = "application/json", consumes = "application/json")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public void create(@RequestBody RegisterAuthorDTO authorPayload) {
-        authorFlow.registerAuthorByName(authorPayload.firstName(), authorPayload.lastName());
+    public void create(@RequestBody RegisterAuthorPayLoad registerAuthorPayload) {
+        authorFlow.registerAuthorByName(registerAuthorPayload.firstName(), registerAuthorPayload.lastName());
     }
+
+    public record RegisterAuthorPayLoad(String firstName, String lastName){};
 }

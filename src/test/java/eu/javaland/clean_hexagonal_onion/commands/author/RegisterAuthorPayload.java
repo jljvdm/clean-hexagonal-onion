@@ -1,4 +1,4 @@
-package eu.javaland.clean_hexagonal_onion.command.author;
+package eu.javaland.clean_hexagonal_onion.commands.author;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

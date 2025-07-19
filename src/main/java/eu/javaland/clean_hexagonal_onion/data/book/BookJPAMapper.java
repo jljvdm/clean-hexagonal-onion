@@ -6,15 +6,17 @@ import eu.javaland.clean_hexagonal_onion.domaininteraction.book.BookDTO;
 public class BookJPAMapper {
 
     public static BookJPA toJPA(BookDTO bookDTO) {
-        return BookJPA.builder()
+        BookJPA bookJPA =  BookJPA.builder()
                 .id(bookDTO.id())
                 .isbn(bookDTO.isbn())
                 .publisherId(bookDTO.publisherId())
                 .published(bookDTO.published())
                 .author(AuthorJPAMapper.mapToJPA(bookDTO.author()))
                 .title(bookDTO.title())
-                .genre(bookDTO.genreString())
+                .genre(bookDTO.genre())
                 .build();
+        bookJPA.registerDomainEvents(bookDTO.domainEvents());
+        return bookJPA;
     }
 
     public static BookDTO toDTO(BookJPA bookJPA) {

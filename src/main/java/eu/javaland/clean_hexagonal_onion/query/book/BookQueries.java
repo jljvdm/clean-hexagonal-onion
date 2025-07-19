@@ -28,7 +28,7 @@ public class BookQueries {
     }
 
     private BookView convertToView(BookDTO bookDTO){
-        return new BookView(bookDTO.title(), bookDTO.genreString(), bookDTO.author().getFullName());
+        return new BookView(bookDTO.title(), bookDTO.genre(), bookDTO.author().getFullName());
     }
 
 }

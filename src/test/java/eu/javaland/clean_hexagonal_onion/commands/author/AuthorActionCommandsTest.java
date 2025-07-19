@@ -1,4 +1,4 @@
-package eu.javaland.clean_hexagonal_onion.command.author;
+package eu.javaland.clean_hexagonal_onion.commands.author;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import eu.javaland.clean_hexagonal_onion.query.book.WriteBookPayload;

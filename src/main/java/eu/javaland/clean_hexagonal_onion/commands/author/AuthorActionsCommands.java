@@ -1,4 +1,4 @@
-package eu.javaland.clean_hexagonal_onion.command.author;
+package eu.javaland.clean_hexagonal_onion.commands.author;
 
 import eu.javaland.clean_hexagonal_onion.domaininteraction.author.AuthorFlow;
 import lombok.AllArgsConstructor;
@@ -14,7 +14,7 @@ public class AuthorActionsCommands {
 
     @PostMapping(value = "/writeBook")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public void writeBook(@RequestBody RegisterBookDTO book, @PathVariable("authorId") Long authorId){
+    public void writeBook(@RequestBody RegisterBookPayLoad book, @PathVariable("authorId") Long authorId){
         authorFlow.registerBook(authorId, book.title(), book.genre());
     }
 

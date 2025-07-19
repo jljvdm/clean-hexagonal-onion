@@ -8,6 +8,6 @@ public record BookView(
         String authorName
 ) {
     public BookView(BookDTO bookDTO){
-        this(bookDTO.title(), bookDTO.genreString(), bookDTO.author().getFullName());
+        this(bookDTO.title(), bookDTO.genre(), bookDTO.author().getFullName());
     }
 }

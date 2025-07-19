@@ -10,4 +10,12 @@ public interface BookDataService {
     List<BookDTO> findAllBooks();
 
     List<BookDTO> findAllBooksWithTitle(String title);
+
+    BookDTO findById(long l);
+
+    public class BookNotFoundException extends RuntimeException {
+        public BookNotFoundException(String message) {
+            super(message);
+        }
+    }
 }
